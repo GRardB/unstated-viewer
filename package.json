@@ -1,0 +1,29 @@
+{
+  "name": "unstated-devtools",
+  "version": "0.0.1",
+  "description": "A simple library to help you view the state inside your Unstated containers.",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": ["dist"],
+  "types": "dist/index.d.ts",
+  "author": "Gerard O'Neill <grardb@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c && cp src/index.d.ts dist/index.d.ts",
+    "watch": "rollup -cw"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.0",
+    "react": "^16.4.1",
+    "rollup": "^0.62.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-watch": "^4.3.1",
+    "typescript": "^2.9.2",
+    "unstated": "^2.1.1"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0",
+    "unstated": "^2.0.0"
+  }
+}
