@@ -10,6 +10,7 @@ export const ContainerList = ({ containers, onSelect }: Props) => (
   <ul
     style={{
       boxSizing: 'border-box',
+      margin: 0,
       overflow: 'auto',
       padding: '0 20px',
     }}

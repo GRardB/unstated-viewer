@@ -36,27 +36,19 @@ const Obj: React.SFC<ObjectProps> = ({
   return (
     <span>
       {collapsed && `${objType} `}
-      {isArray ? '[' : '{'}
       {isArray && collapsed && ` (${value.length}) `}
-      {!collapsed &&
-        names.map((name, i) => (
-          <Indent key={`${containerName}-${name}-${i}`}>
-            <Collapsible>
-              {({ collapsed, toggleCollapse }) => (
-                <>
-                  <span onClick={toggleCollapse}>{name}</span>
-                  :{' '}
-                  <Value
-                    collapsed={collapsed}
-                    containerName={containerName}
-                    value={value[name]}
-                  />
-                </>
-              )}
-            </Collapsible>
-            {i < names.length - 1 && ','}
-          </Indent>
-        ))}
+      {isArray ? '[' : '{'}
+      {collapsed
+        ? '...'
+        : names.map((name, i) => (
+            <Indent key={`${containerName}-${name}-${i}`}>
+              <Value
+                containerName={containerName}
+                name={name}
+                value={value[name]}
+              />
+            </Indent>
+          ))}
       {isArray ? ']' : '}'}
     </span>
   )
@@ -65,33 +57,62 @@ const Obj: React.SFC<ObjectProps> = ({
 // VALUE
 
 interface Props {
-  collapsed?: boolean
   containerName: string
+  name?: string
   value: any
 }
 
-export const Value = ({ collapsed = false, containerName, value }: Props) => {
+export const Value = ({ containerName, name, value }: Props) => {
+  let isObject = false
+  let valueComponent = <span>Unknown type: {typeof value}</span>
+  const label = name ? `${name}: ` : ''
+
   if (value === null) {
-    return <Null />
-  }
-  if (value === undefined) {
-    return <Undefined />
-  }
-  if (typeof value === 'boolean') {
-    return <Bool value={value} />
-  }
-  if (typeof value === 'number') {
-    return <Num value={value} />
-  }
-  if (typeof value === 'string') {
-    return <Str value={value} />
+    valueComponent = <Null />
+  } else if (value === undefined) {
+    valueComponent = <Undefined />
+  } else if (typeof value === 'boolean') {
+    valueComponent = <Bool value={value} />
+  } else if (typeof value === 'number') {
+    valueComponent = <Num value={value} />
+  } else if (typeof value === 'string') {
+    valueComponent = <Str value={value} />
+  } else if (typeof value === 'object') {
+    isObject = true
   }
 
-  if (typeof value === 'object') {
+  if (!isObject) {
     return (
-      <Obj collapsed={collapsed} containerName={containerName} value={value} />
+      <div>
+        {label}
+        {valueComponent}
+      </div>
     )
   }
 
-  return <span>Unknown type: {typeof value}</span>
+  return (
+    <Collapsible>
+      {({ collapsed, toggleCollapse }) => (
+        <div style={{ position: 'relative' }}>
+          <div
+            style={{
+              cursor: 'pointer',
+              height: '1em',
+              left: 0,
+              position: 'absolute',
+              right: 0,
+              top: 0,
+            }}
+            onClick={toggleCollapse}
+          />
+          {label}
+          <Obj
+            collapsed={collapsed}
+            containerName={containerName}
+            value={value}
+          />
+        </div>
+      )}
+    </Collapsible>
+  )
 }
