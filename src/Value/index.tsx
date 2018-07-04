@@ -1,19 +1,14 @@
 import * as React from 'react'
 
+import { Bool } from './Bool'
 import { Collapsible } from './Collapsible'
+import { Null } from './Null'
+import { Num } from './Num'
+import { Str } from './Str'
+import { Undefined } from './Undefined'
 
 const Indent: React.SFC = ({ children }) => (
   <div style={{ marginLeft: 15 }}>{children}</div>
-)
-
-// PRIMIIVES
-
-const Null = () => <span>null</span>
-const Undefined = () => <span>undefined</span>
-const Num = ({ value }: { value: number }) => <span>{value}</span>
-const Str = ({ value }: { value: string }) => <span>"{value}"</span>
-const Bool = ({ value }: { value: boolean }) => (
-  <span>{value ? 'true' : 'false'}</span>
 )
 
 // OBJECT

@@ -1,8 +1,8 @@
+import { DevToolsOverlay } from 'DevToolsOverlay'
 import * as React from 'react'
 import { ContainerType } from 'unstated'
 
 import { DevToolsButton } from './DevToolsButton'
-import { DevToolsOverlay } from './DevToolsOverlay'
 
 interface Props {
   subscriptions: ContainerType<any>[]

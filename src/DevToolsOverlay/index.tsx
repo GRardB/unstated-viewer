@@ -5,6 +5,34 @@ import { Container, ContainerType, Subscribe } from 'unstated'
 import { ContainerInfo } from './ContainerInfo'
 import { ContainerList } from './ContainerList'
 
+interface OverlayHeaderProps {
+  onClose: React.MouseEventHandler<HTMLButtonElement>
+}
+
+const OverlayHeader = ({ onClose }: OverlayHeaderProps) => (
+  <header
+    className="unstated-devtools-header"
+    style={{
+      boxSizing: 'border-box',
+      cursor: 'move',
+      fontSize: 24,
+      fontWeight: 'bold',
+      height: 36, // fontSize + padding*2
+      padding: 6,
+    }}
+  >
+    Unstated DevTools
+    <button
+      style={{
+        float: 'right',
+      }}
+      onClick={onClose}
+    >
+      &times;
+    </button>
+  </header>
+)
+
 interface Props {
   onClose: React.MouseEventHandler<HTMLButtonElement>
   subscriptions: ContainerType<any>[]
@@ -22,7 +50,7 @@ export class DevToolsOverlay extends React.Component<Props, State> {
   }
 
   render() {
-    const { subscriptions } = this.props
+    const { onClose, subscriptions } = this.props
     const { activeContainer } = this.state
     return (
       <Subscribe to={subscriptions}>
@@ -48,27 +76,8 @@ export class DevToolsOverlay extends React.Component<Props, State> {
             }}
             onResize={(e) => e.stopPropagation()}
           >
-            <header
-              className="unstated-devtools-header"
-              style={{
-                boxSizing: 'border-box',
-                cursor: 'move',
-                fontSize: 24,
-                fontWeight: 'bold',
-                height: 36, // fontSize + padding*2
-                padding: 6,
-              }}
-            >
-              Unstated DevTools
-              <button
-                style={{
-                  float: 'right',
-                }}
-                onClick={this.props.onClose}
-              >
-                &times;
-              </button>
-            </header>
+            <OverlayHeader onClose={onClose} />
+
             <div
               style={{
                 display: 'flex',

@@ -18,6 +18,7 @@
     "@types/react": "^16.0.0",
     "react": "^16.4.1",
     "rollup": "^0.62.0",
+    "rollup-plugin-includepaths": "^0.2.3",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-watch": "^4.3.1",
     "typescript": "^2.9.2",
