@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Container } from 'unstated'
 
-import { Value } from './Values'
+import { Value } from './Value'
 
 interface Props {
   container: Container<any>
