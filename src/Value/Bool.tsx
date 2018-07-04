@@ -1,5 +1,6 @@
+import { Colors } from 'common/colors'
 import * as React from 'react'
 
 export const Bool = ({ value }: { value: boolean }) => (
-  <span>{value ? 'true' : 'false'}</span>
+  <span style={{ color: Colors.Blue }}>{value ? 'true' : 'false'}</span>
 )

@@ -66,9 +66,7 @@ export class DevToolsOverlay extends React.Component<Props, State> {
                 containers={subs as Container<any>[]}
                 onSelect={this.setActiveContainer}
               />
-              {activeContainer !== null && (
-                <ContainerInfo ref={this.infoRef} container={activeContainer} />
-              )}
+              <ContainerInfo ref={this.infoRef} container={activeContainer} />
             </div>
           </Rnd>
         )}

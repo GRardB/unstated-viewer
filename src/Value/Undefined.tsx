@@ -1,3 +1,6 @@
+import { Colors } from 'common/colors'
 import * as React from 'react'
 
-export const Undefined = () => <span>undefined</span>
+export const Undefined = () => (
+  <span style={{ color: Colors.Red }}>undefined</span>
+)

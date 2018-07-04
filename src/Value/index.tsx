@@ -1,3 +1,4 @@
+import { Colors } from 'common/colors'
 import * as React from 'react'
 
 import { Bool } from './Bool'
@@ -19,6 +20,11 @@ interface ObjectProps {
   value: any
 }
 
+const objStyle: React.CSSProperties = {
+  color: Colors.Base2,
+  fontFamily: 'Menlo, Monaco, "Courier New", Courier, monospace',
+}
+
 const Obj: React.SFC<ObjectProps> = ({
   collapsed = false,
   containerName,
@@ -29,10 +35,10 @@ const Obj: React.SFC<ObjectProps> = ({
   const objType = isArray ? 'Array' : 'Object'
 
   return (
-    <span>
-      {collapsed && `${objType} `}
-      {isArray && collapsed && ` (${value.length}) `}
-      {isArray ? '[' : '{'}
+    <span style={objStyle}>
+      {objType}
+      {isArray && collapsed && ` (${value.length})`}
+      {isArray ? ' [' : ' {'}
       {collapsed && '...'}
       <span style={{ display: collapsed ? 'none' : 'inline' }}>
         {names.map((name, i) => (
@@ -58,10 +64,14 @@ interface Props {
   value: any
 }
 
+const labelStyle: React.CSSProperties = {
+  color: Colors.Green,
+}
+
 export const Value = ({ containerName, name, value }: Props) => {
   let isObject = false
   let valueComponent = <span>Unknown type: {typeof value}</span>
-  const label = name ? `${name}: ` : ''
+  const label = name && <span style={labelStyle}>{name}: </span>
 
   if (value === null) {
     valueComponent = <Null />

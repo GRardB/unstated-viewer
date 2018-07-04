@@ -14,7 +14,7 @@ interface State {
 
 export class UnstatedDevTools extends React.Component<Props, State> {
   state = {
-    displayOverlay: true,
+    displayOverlay: false,
   }
 
   render() {
