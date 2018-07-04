@@ -4,34 +4,7 @@ import { Container, ContainerType, Subscribe } from 'unstated'
 
 import { ContainerInfo } from './ContainerInfo'
 import { ContainerList } from './ContainerList'
-
-interface OverlayHeaderProps {
-  onClose: React.MouseEventHandler<HTMLButtonElement>
-}
-
-const OverlayHeader = ({ onClose }: OverlayHeaderProps) => (
-  <header
-    className="unstated-devtools-header"
-    style={{
-      boxSizing: 'border-box',
-      cursor: 'move',
-      fontSize: 24,
-      fontWeight: 'bold',
-      height: 36, // fontSize + padding*2
-      padding: 6,
-    }}
-  >
-    Unstated DevTools
-    <button
-      style={{
-        float: 'right',
-      }}
-      onClick={onClose}
-    >
-      &times;
-    </button>
-  </header>
-)
+import { OverlayHeader } from './OverlayHeader'
 
 interface Props {
   onClose: React.MouseEventHandler<HTMLButtonElement>
