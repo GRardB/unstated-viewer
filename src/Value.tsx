@@ -29,7 +29,7 @@ const Obj: React.SFC<ObjectProps> = ({
   containerName,
   value,
 }) => {
-  const names = Object.keys(value)
+  const names = Object.keys(value).filter((name) => value.hasOwnProperty(name))
   const isArray = Array.isArray(value)
   const objType = isArray ? 'Array' : 'Object'
 
