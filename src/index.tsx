@@ -5,6 +5,7 @@ import { ContainerType } from 'unstated'
 import { InitButton } from './InitButton'
 
 interface Props {
+  className?: string
   subscriptions: ContainerType<any>[]
 }
 
@@ -18,12 +19,12 @@ export class UnstatedViewer extends React.Component<Props, State> {
   }
 
   render() {
-    const { subscriptions } = this.props
+    const { className, subscriptions } = this.props
     const { displayOverlay } = this.state
 
     return (
       <>
-        <InitButton onClick={this.showOverlay} />
+        <InitButton className={className} onClick={this.showOverlay} />
         {displayOverlay && (
           <Overlay onClose={this.hideOverlay} subscriptions={subscriptions} />
         )}
