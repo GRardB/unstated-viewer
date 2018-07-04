@@ -31,8 +31,8 @@ const closeButtonStyle: React.CSSProperties = {
 }
 
 export const OverlayHeader = ({ onClose }: Props) => (
-  <header className="unstated-devtools-header" style={headerStyle}>
-    Unstated DevTools
+  <header className="unstated-viewer-header" style={headerStyle}>
+    Unstated Viewer
     <button style={closeButtonStyle} onClick={onClose}>
       &times;
     </button>

@@ -1,7 +1,7 @@
 {
-  "name": "unstated-devtools",
+  "name": "unstated-viewer",
   "version": "0.0.1",
-  "description": "A simple library to help you view the state inside your Unstated containers.",
+  "description": "A simple component to help you view the state inside your Unstated containers.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
@@ -10,6 +10,14 @@
   "types": "dist/index.d.ts",
   "author": "Gerard O'Neill <grardb@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "container",
+    "debugger",
+    "devtool",
+    "react",
+    "state tree",
+    "unstated"
+  ],
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw"

@@ -1,8 +1,8 @@
-import { DevToolsOverlay } from 'DevToolsOverlay'
+import { Overlay } from 'Overlay'
 import * as React from 'react'
 import { ContainerType } from 'unstated'
 
-import { DevToolsButton } from './DevToolsButton'
+import { InitButton } from './InitButton'
 
 interface Props {
   subscriptions: ContainerType<any>[]
@@ -12,7 +12,7 @@ interface State {
   displayOverlay: boolean
 }
 
-export class UnstatedDevTools extends React.Component<Props, State> {
+export class UnstatedViewer extends React.Component<Props, State> {
   state = {
     displayOverlay: false,
   }
@@ -23,12 +23,9 @@ export class UnstatedDevTools extends React.Component<Props, State> {
 
     return (
       <>
-        <DevToolsButton onClick={this.showOverlay} />
+        <InitButton onClick={this.showOverlay} />
         {displayOverlay && (
-          <DevToolsOverlay
-            onClose={this.hideOverlay}
-            subscriptions={subscriptions}
-          />
+          <Overlay onClose={this.hideOverlay} subscriptions={subscriptions} />
         )}
       </>
     )

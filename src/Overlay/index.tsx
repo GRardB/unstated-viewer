@@ -28,7 +28,7 @@ const contentStyle: React.CSSProperties = {
   height: 'calc(100% - 36px)',
 }
 
-export class DevToolsOverlay extends React.Component<Props, State> {
+export class Overlay extends React.Component<Props, State> {
   infoRef = React.createRef<HTMLDivElement>()
 
   state: State = {
@@ -43,7 +43,7 @@ export class DevToolsOverlay extends React.Component<Props, State> {
         {(...subs) => (
           <Rnd
             bounds="body"
-            dragHandleClassName="unstated-devtools-header"
+            dragHandleClassName="unstated-viewer-header"
             default={this.getDefaults()}
             style={overlayStyle}
             enableResizing={{
