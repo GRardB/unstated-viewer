@@ -1,3 +1,4 @@
+import { Colors } from 'common/colors'
 import * as React from 'react'
 import Rnd from 'react-rnd'
 import { Container, ContainerType, Subscribe } from 'unstated'
@@ -13,6 +14,18 @@ interface Props {
 
 interface State {
   activeContainer: Container<any> | null
+}
+
+const overlayStyle: React.CSSProperties = {
+  background: Colors.White,
+  border: `1px solid ${Colors.DarkGray}`,
+  zIndex: 10000,
+}
+
+const contentStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'row',
+  height: 'calc(100% - 36px)',
 }
 
 export class DevToolsOverlay extends React.Component<Props, State> {
@@ -32,11 +45,7 @@ export class DevToolsOverlay extends React.Component<Props, State> {
             bounds="body"
             dragHandleClassName="unstated-devtools-header"
             default={this.getDefaults()}
-            style={{
-              background: 'white',
-              border: '1px solid black',
-              zIndex: 10000,
-            }}
+            style={overlayStyle}
             enableResizing={{
               bottom: true,
               bottomLeft: true,
@@ -51,14 +60,9 @@ export class DevToolsOverlay extends React.Component<Props, State> {
           >
             <OverlayHeader onClose={onClose} />
 
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                height: 'calc(100% - 36px)',
-              }}
-            >
+            <div style={contentStyle}>
               <ContainerList
+                activeContainer={activeContainer}
                 containers={subs as Container<any>[]}
                 onSelect={this.setActiveContainer}
               />

@@ -1,3 +1,4 @@
+import { Colors } from 'common/colors'
 import * as React from 'react'
 
 interface Props {
@@ -5,9 +6,10 @@ interface Props {
 }
 
 const headerStyle: React.CSSProperties = {
-  backgroundColor: '#F4F4F4',
+  backgroundColor: Colors.LightGray,
+  borderBottom: `1px solid ${Colors.DarkGray}`,
   boxSizing: 'border-box',
-  color: '#333',
+  color: Colors.DarkGray,
   cursor: 'move',
   display: 'flex',
   fontSize: '20px',
@@ -20,7 +22,7 @@ const closeButtonStyle: React.CSSProperties = {
   background: 'transparent',
   border: 'none',
   boxSizing: 'border-box',
-  color: '#333',
+  color: Colors.DarkGray,
   cursor: 'pointer',
   float: 'right',
   fontSize: '24px',
