@@ -1,20 +1,27 @@
-import typescript from 'rollup-plugin-typescript'
+import typescript from 'rollup-plugin-typescript2'
 
 import pkg from './package.json'
 
 export default {
-  input: "src/index.tsx",
+  input: 'src/index.tsx',
   output: [
     {
       file: pkg.main,
-      format: "cjs"
+      format: 'cjs',
     },
     {
       file: pkg.module,
-      format: "es"
-    }
+      format: 'es',
+    },
   ],
-  external: [...Object.keys(pkg.peerDependencies || {})],
+  external: [
+    ...Object.keys(pkg.dependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {}),
+  ],
 
-  plugins: [typescript()]
-};
+  plugins: [
+    typescript({
+      typescript: require('typescript'),
+    }),
+  ],
+}

@@ -4,12 +4,14 @@
   "description": "A simple library to help you view the state inside your Unstated containers.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "dist/index.d.ts",
   "author": "Gerard O'Neill <grardb@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c && cp src/index.d.ts dist/index.d.ts",
+    "build": "rollup -c",
     "watch": "rollup -cw"
   },
   "devDependencies": {
@@ -21,7 +23,10 @@
     "typescript": "^2.9.2",
     "unstated": "^2.1.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-rnd": "^8.0.2",
+    "rollup-plugin-typescript2": "^0.15.1"
+  },
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0",
     "unstated": "^2.0.0"
