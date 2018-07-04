@@ -38,17 +38,18 @@ const Obj: React.SFC<ObjectProps> = ({
       {collapsed && `${objType} `}
       {isArray && collapsed && ` (${value.length}) `}
       {isArray ? '[' : '{'}
-      {collapsed
-        ? '...'
-        : names.map((name, i) => (
-            <Indent key={`${containerName}-${name}-${i}`}>
-              <Value
-                containerName={containerName}
-                name={name}
-                value={value[name]}
-              />
-            </Indent>
-          ))}
+      {collapsed && '...'}
+      <span style={{ display: collapsed ? 'none' : 'inline' }}>
+        {names.map((name, i) => (
+          <Indent key={`${containerName}-${name}-${i}`}>
+            <Value
+              containerName={containerName}
+              name={name}
+              value={value[name]}
+            />
+          </Indent>
+        ))}
+      </span>
       {isArray ? ']' : '}'}
     </span>
   )
