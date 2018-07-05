@@ -26,7 +26,7 @@ npm --save-dev install unstated-viewer
 
 First, import the module. Make it a conditional require to strip it from your production build:
 
-```tsx
+```js
 const StateViewer = () => {
   if (process.env.NODE_ENV === 'development') {
     const { UnstatedViewer } = require('unstated-viewer')
@@ -47,7 +47,7 @@ The `className` prop is for custom styling of the button that is used to bring u
 
 Then, include this wrapper component anywhere so long as it's a descendent of the `<Provider>` component:
 
-```tsx
+```js
 export const App = () => (
   <Provider>
     <Router>
