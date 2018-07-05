@@ -1,12 +1,16 @@
 {
   "name": "unstated-viewer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple component to help you view the state inside your Unstated containers.",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GRardB/unstated-viewer"
+  },
   "types": "dist/index.d.ts",
   "author": "Gerard O'Neill <grardb@gmail.com>",
   "license": "MIT",
