@@ -6,6 +6,7 @@ import { Collapsible } from './Collapsible'
 import { Null } from './Null'
 import { Num } from './Num'
 import { Str } from './Str'
+import { Sym } from './Sym'
 import { Undefined } from './Undefined'
 
 const Indent: React.SFC = ({ children }) => (
@@ -83,6 +84,8 @@ export const Value = ({ containerName, name, value }: Props) => {
     valueComponent = <Num value={value} />
   } else if (typeof value === 'string') {
     valueComponent = <Str value={value} />
+  } else if (typeof value === 'symbol') {
+    valueComponent = <Sym value={value} />
   } else if (typeof value === 'object') {
     isObject = true
   }
