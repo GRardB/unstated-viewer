@@ -26,6 +26,7 @@ const buttonStyle: React.CSSProperties = {
   cursor: 'pointer',
   fontSize: '16px',
   padding: '5px 10px',
+  textAlign: 'left',
   width: '100%',
 }
 
