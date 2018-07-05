@@ -1,6 +1,6 @@
-import { Overlay } from 'Overlay'
 import * as React from 'react'
 import { ContainerType } from 'unstated'
+import { Viewer } from 'Viewer'
 
 import { InitButton } from './InitButton'
 
@@ -10,28 +10,28 @@ interface Props {
 }
 
 interface State {
-  displayOverlay: boolean
+  displayWindow: boolean
 }
 
 export class UnstatedViewer extends React.Component<Props, State> {
   state = {
-    displayOverlay: false,
+    displayWindow: false,
   }
 
   render() {
     const { className, subscriptions } = this.props
-    const { displayOverlay } = this.state
+    const { displayWindow } = this.state
 
     return (
       <>
-        <InitButton className={className} onClick={this.showOverlay} />
-        {displayOverlay && (
-          <Overlay onClose={this.hideOverlay} subscriptions={subscriptions} />
+        <InitButton className={className} onClick={this.openViewer} />
+        {displayWindow && (
+          <Viewer onClose={this.closeViewer} subscriptions={subscriptions} />
         )}
       </>
     )
   }
 
-  private showOverlay = () => this.setState({ displayOverlay: true })
-  private hideOverlay = () => this.setState({ displayOverlay: false })
+  private openViewer = () => this.setState({ displayWindow: true })
+  private closeViewer = () => this.setState({ displayWindow: false })
 }

@@ -9,6 +9,7 @@ interface Props {
 
 const emptyStateStyle: React.CSSProperties = {
   color: Colors.Base3,
+  fontFamily: 'sans-serif',
   textAlign: 'center',
 }
 

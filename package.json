@@ -24,19 +24,19 @@
   },
   "devDependencies": {
     "@types/react": "^16.0.0",
+    "@types/react-dom": "^16.0.6",
     "react": "^16.4.1",
     "rollup": "^0.62.0",
     "rollup-plugin-includepaths": "^0.2.3",
-    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-typescript2": "^0.15.1",
     "rollup-watch": "^4.3.1",
     "typescript": "^2.9.2",
     "unstated": "^2.1.1"
   },
   "dependencies": {
-    "react-rnd": "^8.0.2",
-    "rollup-plugin-typescript2": "^0.15.1"
   },
   "peerDependencies": {
+    "react-dom": ">=16.3.0 < 17.0.0",
     "react": ">=16.3.0 < 17.0.0",
     "unstated": "^2.0.0"
   }

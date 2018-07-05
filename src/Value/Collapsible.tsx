@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-
-
 interface CollapsibleProps {
   children: (
     {
@@ -30,5 +28,6 @@ export class Collapsible extends React.Component<
     })
   }
 
-  toggleCollapse = () => this.setState({ collapsed: !this.state.collapsed })
+  private toggleCollapse = () =>
+    this.setState({ collapsed: !this.state.collapsed })
 }

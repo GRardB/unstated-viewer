@@ -10,7 +10,6 @@ interface Props {
 
 const listStyle: React.CSSProperties = {
   backgroundColor: Colors.LightGray,
-  borderBottom: `1px solid ${Colors.DarkGray}`,
   boxSizing: 'border-box',
   listStyleType: 'none',
   margin: 0,
