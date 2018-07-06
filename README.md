@@ -2,7 +2,7 @@
 
 # Unstated Viewer
 
-`<UnstatedViewer>` is simple component to help you view the state inside your [Unstated](https://github.com/jamiebuilds/unstated) containers.
+`<UnstatedViewer>` is a simple component to help you view the state inside your [Unstated](https://github.com/jamiebuilds/unstated) containers.
 
 ##  Proof
 
